@@ -8,92 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<style>
-/* VOICE: warm, direct, a working musician talking to students and band directors
-   IDEA: a page from a band book — the riff sheet on the stand
-   PICTURE: a hand-marked 12-bar blues lead sheet with a riff written over it
-   COLOUR and TYPE: blues cobalt field, paper, one red pencil accent; Archivo + Caveat for handwriting
-   LAYOUT: blue hero band with the sheet, then offer, about, method, videos, contact */
-:root{color-scheme:light dark;
---blue:#1b3a9c;--blue2:#142c78;--paper:light-dark(#f6f3ec,#15171c);--card:light-dark(#fffdf8,#1e2128);
---ink:light-dark(#16181d,#eceae4);--soft:light-dark(#4b4f59,#b5b8bf);--red:#e2412a;--line:light-dark(#ddd7c9,#2e323b)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
-*{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 Archivo,system-ui,sans-serif;overflow-x:clip}
-a{color:inherit}
-.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}
-.wrap{max-width:1180px;margin:0 auto}
-h1,h2,h3{line-height:1.05;text-wrap:balance;margin:0}
-h1{font-size:clamp(38px,6vw,64px);font-weight:900;letter-spacing:-.02em}
-h2{font-size:clamp(30px,4vw,44px);font-weight:900;letter-spacing:-.01em;margin-bottom:18px}
-h3{font-size:21px;font-weight:700;margin-bottom:8px}
-p{margin:0 0 14px;max-width:64ch}
-.lede{font-size:clamp(18px,2vw,21px)}
-/* nav */
-nav{position:sticky;top:0;z-index:5;background:var(--blue2);color:#fff}
-nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px max(5vw,16px);max-width:none}
-nav .brand{font-weight:900;font-size:18px;text-decoration:none;margin-right:auto}
-nav .brand span{color:#ffb4a6}
-nav a.l{text-decoration:none;font-size:15px;opacity:.88;padding:8px 0}
-nav a.l:hover{opacity:1;text-decoration:underline}
-/* hero */
-.hero{background:var(--blue);color:#fff;background-image:radial-gradient(circle at 85% 30%,#2b52c9 0,transparent 55%)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
-.hero .who{font-size:18px;opacity:.9;margin-bottom:14px}
-.hero p.lede{opacity:.95;margin:20px 0 28px}
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:6px;font:700 16px Archivo,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
-.btn.red{background:var(--red);color:#fff}
-.btn.red:hover{background:#c8331e}
-.btn.ghost{border-color:#fff;color:#fff;background:transparent}
-.btn.ghost:hover{background:#ffffff1a}
-.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.vid:focus-visible{outline:3px solid #ffb4a6;outline-offset:2px}
-.sheet{position:relative;aspect-ratio:5/4;transform:rotate(-2deg);filter:drop-shadow(0 22px 30px #0007)}
-.sheet svg{width:100%;height:100%;display:block}
-@media (prefers-reduced-motion:no-preference){.sheet .riff{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s .4s ease-out forwards}.sheet .nh{opacity:0;animation:pop .3s forwards}}
-@keyframes draw{to{stroke-dashoffset:0}}@keyframes pop{to{opacity:1}}
-/* offer */
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px}
-.card p{color:var(--soft);font-size:16px;margin:0}
-.card .tag{font:600 22px Caveat,cursive;color:var(--red);display:block;margin-bottom:6px}
-/* about */
-.about .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:start}
-.facts{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-.facts li{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
-.facts b{display:block;font-size:18px}
-/* method */
-.method{background:var(--blue2);color:#fff}
-.method .grid3 .card{background:#ffffff0f;border-color:#ffffff2a}
-.method .card p{color:#dfe5f7}
-.method .card .tag{color:#ffb4a6}
-/* videos */
-.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}
-.vid{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;overflow:hidden;cursor:pointer;background:#0d1a46;color:#fff;text-align:left;padding:0;font:inherit}
-.vid .bg{position:absolute;inset:0;background:linear-gradient(135deg,#1b3a9c,#0d1a46)}
-.vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
-.vid .play{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 8px 20px #0006}
-.vid .play::after{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
-.vid .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,#000c);font-weight:700;font-size:16px;line-height:1.3}
-.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.more{margin-top:22px}
-.more a{font-weight:700;color:var(--red)}
-/* contact */
-.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px)}
-form{display:grid;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,32px)}
-.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-label{display:grid;gap:6px;font-weight:600;font-size:15px}
-input,select,textarea{font:16px Archivo,sans-serif;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px;min-height:48px;width:100%}
-textarea{min-height:140px;resize:vertical}
-.status{font-size:15px;margin:0;min-height:1.4em}
-.status.ok{color:#1f7a3f}.status.err{color:var(--red)}
-.mail{font-weight:700;overflow-wrap:anywhere}
-footer{background:var(--blue2);color:#dfe5f7;font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
-@media(max-width:860px){.hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}.grid3{grid-template-columns:minmax(0,1fr)}.sheet{max-width:520px}}
-@media(max-width:600px){.vids,.row{grid-template-columns:minmax(0,1fr)}nav a.l{font-size:14px}}
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
@@ -103,6 +18,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <a class="l" href="#offer">Workshops &amp; lessons</a>
     <a class="l" href="#about">About</a>
     <a class="l" href="#videos">Videos</a>
+    <a class="l" href="/scores/">Free scores</a>
     <a class="l" href="#contact">Contact</a>
   </div>
 </nav>
@@ -180,7 +96,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <h2>Watch Bobby Blue</h2>
     <p class="lede">Start with the riffing episodes, then try a standard.</p>
     <div class="vids" id="vids"></div>
-    <p class="more"><a href="https://www.youtube.com/@bookofriffs">All videos on YouTube →</a></p>
+    <p class="more"><a href="/scores/">Download the free scores →</a> &nbsp; <a href="https://www.youtube.com/@bookofriffs">All videos on YouTube →</a></p>
   </div>
 </section>
 

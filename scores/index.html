@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free scores · Book of Riffs</title>
+<meta name="description" content="Free melody and Barry Harris scale-outline PDFs for the Bobby Blue's Book of Riffs videos, in C, B♭, E♭ and bass clef.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="/">Book of <span>Riffs</span></a>
+    <a class="l" href="/#offer">Workshops &amp; lessons</a>
+    <a class="l" href="/#about">About</a>
+    <a class="l" href="/#videos">Videos</a>
+    <a class="l" href="/scores/">Free scores</a>
+    <a class="l" href="/#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="band">
+  <div class="wrap">
+    <h1>Free scores</h1>
+    <p class="lede" style="margin-top:16px">Melody and scale outlines for the <em>Melody, Scales &amp; Solo</em> videos. Pick the version for your instrument.</p>
+    <p style="color:var(--soft);font-size:15px">C = flute, violin, piano, guitar &nbsp;·&nbsp; B♭ = trumpet, clarinet, tenor &amp; soprano sax &nbsp;·&nbsp; E♭ = alto &amp; baritone sax &nbsp;·&nbsp; Bass clef = trombone, bass, cello</p>
+
+    <div class="tunes" id="tunes"></div>
+
+    <div class="card" style="margin-top:28px">
+      <span class="tag" style="font:600 22px Caveat,cursive;color:var(--red)">want to go further?</span>
+      <h3>Workshops and lessons</h3>
+      <p>I run riffing and improvisation workshops for school bands and teach privately in Melbourne and online. <a href="/#contact" style="color:var(--red);font-weight:700">Get in touch →</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <span>© Rob Glaesemann · Bobby Blue’s Book of Riffs · Melbourne, Australia</span>
+    <a href="https://www.youtube.com/@bookofriffs">youtube.com/@bookofriffs</a>
+  </div>
+</footer>
+
+<script>
+{
+  const yt = id => `https://www.youtube.com/watch?v=${id}`;
+  const tunes = [
+    {slug: "all-of-me", name: "All of Me", videos: [["Melody, Scales & Solo", "kQYgnnMEBUM"]]},
+    {slug: "bernies-tune", name: "Bernie’s Tune", videos: [["Melody, Scales & Solo", "RsQesgpHdhk"], ["Lesson: 6th diminished & minor ii–V", "NE4QamtaoK8"]]},
+    {slug: "out-of-nowhere", name: "Out of Nowhere", videos: [["Melody, Scales & Solo", "TZeUMwIJYHA"]]}
+  ];
+  const keys = [["c", "C instruments", "Concert pitch"], ["bb", "B♭ instruments", "Trumpet, clarinet, tenor"], ["eb", "E♭ instruments", "Alto, baritone"], ["bass", "Bass clef", "Trombone, bass"]];
+  document.getElementById("tunes").innerHTML = tunes.map(t => `
+    <section class="tune" id="${t.slug}">
+      <h3>${t.name}</h3>
+      <p class="vlinks">Watch: ${t.videos.map(([label, id]) => `<a href="${yt(id)}">${label}</a>`).join(" · ")}</p>
+      <div class="keys">${keys.map(([k, label, sub]) => `<a href="/scores/${t.slug}-${k}.pdf" data-goatcounter-click="pdf-${t.slug}-${k}">${label}<small>${sub}</small></a>`).join("")}</div>
+    </section>`).join("");
+}
+</script>
+</body>
+</html>
